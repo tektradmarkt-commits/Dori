@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light" />
+  <title>DOR_IS — Protocollo interrotto</title>
+
+  <meta name="description" content="DOR_IS — Protocollo interrotto. Estratti, immagini e materiali visivi del progetto narrativo." />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="DOR_IS — Protocollo interrotto" />
+  <meta property="og:description" content="Estratti, immagini e materiali visivi del progetto narrativo." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="img/cover-front.jpg" />
+
+  <!-- Favicons (opzionali, se li hai) -->
+  <!-- <link rel="icon" href="img/favicon.png" /> -->
+
+  <!-- Preload cover (opzionale ma utile) -->
+  <link rel="preload" as="image" href="img/cover-front.jpg" />
+
+  <style>
+    :root{
+      --bg:#0b0d12;
+      --card:#101420;
+      --ink:#e9ecf5;
+      --muted:#9aa3b2;
+      --line:rgba(255,255,255,.08);
+      --accent:#9ad7ff;
+      --shadow: 0 18px 50px rgba(0,0,0,.45);
+      --r:18px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f6f7fb;
+        --card:#ffffff;
+        --ink:#0f1220;
+        --muted:#5b6475;
+        --line:rgba(0,0,0,.08);
+        --accent:#0b74ff;
+        --shadow: 0 12px 34px rgba(0,0,0,.12);
+      }
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font: 16px/1.55 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      background: radial-gradient(1200px 600px at 20% 0%, rgba(154,215,255,.12), transparent 60%),
+                  radial-gradient(900px 500px at 80% 20%, rgba(255,255,255,.06), transparent 55%),
+                  var(--bg);
+      color:var(--ink);
+    }
+    a{color:inherit}
+    .wrap{max-width:1100px; margin:0 auto; padding:28px 18px 60px}
+    header{
+      display:flex; gap:18px; align-items:flex-start; justify-content:space-between;
+      padding:24px; border:1px solid var(--line); border-radius:var(--r); background:rgba(255,255,255,.02);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+    .brand h1{margin:0; font-size:26px; letter-spacing:.5px}
+    .brand p{margin:10px 0 0; color:var(--muted); max-width:62ch}
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 12px; border-radius:999px; border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--muted); font-size:13px; white-space:nowrap
+    }
+    .grid{
+      margin-top:18px;
+      display:grid; gap:18px;
+      grid-template-columns: 1.15fr .85fr;
+    }
+    @media (max-width: 920px){ .grid{grid-template-columns:1fr} header{flex-direction:column} }
+    .card{
+      border:1px solid var(--line); border-radius:var(--r);
+      background:rgba(255,255,255,.02);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card .hd{
+      padding:16px 18px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      border-bottom:1px solid var(--line);
+    }
+    .card .hd h2{margin:0; font-size:16px; letter-spacing:.3px}
+    .card .bd{padding:18px}
+    .muted{color:var(--muted)}
+    .covers{
+      display:grid; gap:14px;
+      grid-template-columns:1fr 1fr;
+    }
+    @media (max-width: 520px){ .covers{grid-template-columns:1fr} }
+    .thumb{
+      position:relative;
+      border-radius:16px; overflow:hidden;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(255,255,255,.06), transparent);
+      cursor:pointer;
+    }
+    .thumb img{width:100%; height:100%; display:block; object-fit:cover; aspect-ratio: 2/3}
+    .thumb .cap{
+      position:absolute; left:10px; bottom:10px;
+      padding:6px 10px; border-radius:999px;
+      font-size:12px; color:var(--ink);
+      background:rgba(0,0,0,.55);
+      border:1px solid rgba(255,255,255,.14);
+      backdrop-filter: blur(6px);
+    }
+    .gallery{
+      display:grid; gap:12px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 920px){ .gallery{grid-template-columns: repeat(3, 1fr)} }
+    @media (max-width: 680px){ .gallery{grid-template-columns: repeat(2, 1fr)} }
+    @media (max-width: 420px){ .gallery{grid-template-columns: 1fr} }
+    .shot{
+      border-radius:16px; overflow:hidden;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+      cursor:pointer;
+    }
+    .shot img{width:100%; display:block; aspect-ratio: 4/3; object-fit:cover}
+    .btns{
+      display:flex; flex-wrap:wrap; gap:10px; margin-top:14px
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:10px 12px; border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--ink);
+      text-decoration:none; font-size:14px;
+    }
+    .btn:hover{border-color:rgba(154,215,255,.35)}
+    .btn small{color:var(--muted)}
+    footer{
+      margin-top:18px; padding:18px 6px; color:var(--muted); font-size:13px;
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap
+    }
+
+    /* Lightbox */
+    .lb{
+      position:fixed; inset:0; display:none;
+      background: rgba(0,0,0,.78);
+      align-items:center; justify-content:center;
+      padding:22px;
+      z-index:9999;
+    }
+    .lb[open]{display:flex}
+    .lb figure{
+      margin:0; max-width:min(1000px, 96vw);
+      width:100%;
+      background:rgba(15,18,32,.65);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow: 0 22px 70px rgba(0,0,0,.65);
+    }
+    .lb img{width:100%; height:auto; display:block}
+    .lb .bar{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 14px; gap:12px;
+      color:var(--muted);
+      border-top:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.35);
+    }
+    .lb button{
+      appearance:none; border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.06);
+      color:var(--ink);
+      padding:8px 10px; border-radius:10px;
+      cursor:pointer;
+    }
+    .lb button:hover{border-color:rgba(154,215,255,.35)}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <h1>DOR_IS — Protocollo interrotto</h1>
+        <p class="muted">
+          Pagina vetrina (single-page) con materiali visivi e note. Nessuna dipendenza esterna.
+        </p>
+        <div class="btns">
+          <!-- Se vuoi linkare il PDF/estratto: mettilo sul server e cambia l'href -->
+          <a class="btn" href="doris-estratto.pdf" target="_blank" rel="noopener">
+            Apri estratto PDF <small>(opzionale)</small>
+          </a>
+          <a class="btn" href="#gallery">Vai alla galleria</a>
+        </div>
+      </div>
+      <div class="pill" title="Info tecniche">
+        <span>Build:</span> <strong>static</strong> · <span>JS:</span> <strong>inline</strong> · <span>CDN:</span> <strong>no</strong>
+      </div>
+    </header>
+
+    <section class="grid">
+      <article class="card">
+        <div class="hd">
+          <h2>Copertine</h2>
+          <span class="muted">clic per ingrandire</span>
+        </div>
+        <div class="bd">
+          <div class="covers">
+            <div class="thumb" data-full="img/cover-front.jpg" data-cap="Copertina (front)">
+              <img src="img/cover-front.jpg" alt="Copertina front" loading="eager" />
+              <span class="cap">Front</span>
+            </div>
+            <div class="thumb" data-full="img/cover-back.jpg" data-cap="Copertina (retro)">
+              <img src="img/cover-back.jpg" alt="Copertina retro" loading="lazy" />
+              <span class="cap">Retro</span>
+            </div>
+          </div>
+          <p class="muted" style="margin:14px 0 0">
+            Suggerimento: usa JPG ottimizzati (≤ 300–500 KB) per caricamenti rapidi.
+          </p>
+        </div>
+      </article>
+
+      <aside class="card">
+        <div class="hd">
+          <h2>Nota</h2>
+          <span class="muted">disclaimer</span>
+        </div>
+        <div class="bd">
+          <p class="muted" style="margin-top:0">
+            Questa opera è un lavoro di fantasia. L’utilizzo di nomi di enti e istituzioni reali avviene esclusivamente a fini narrativi e non implica alcuna rappresentazione fedele, autorizzata o ufficiale delle loro attività, procedure o persone. I nomi assegnati alle persone non hanno valore identificativo. Ogni coincidenza è da considerarsi casuale.
+          </p>
+          <p class="muted" style="margin-bottom:0">
+            Contatto: <a href="mailto:tuamail@example.com">tuamail@example.com</a>
+          </p>
+        </div>
+      </aside>
+    </section>
+
+    <section id="gallery" class="card" style="margin-top:18px">
+      <div class="hd">
+        <h2>Galleria</h2>
+        <span class="muted">clic per lightbox</span>
+      </div>
+      <div class="bd">
+        <div class="gallery">
+          <!-- Personaggi: rinomina i file come preferisci -->
+          <div class="shot" data-full="img/massimo.jpg" data-cap="Massimo">
+            <img src="img/massimo.jpg" alt="Massimo" loading="lazy" />
+          </div>
+          <div class="shot" data-full="img/dave.jpg" data-cap="Dave">
+            <img src="img/dave.jpg" alt="Dave" loading="lazy" />
+          </div>
+          <div class="shot" data-full="img/hans.jpg" data-cap="Hans">
+            <img src="img/hans.jpg" alt="Hans" loading="lazy" />
+          </div>
+          <div class="shot" data-full="img/daniel.jpg" data-cap="Daniel">
+            <img src="img/daniel.jpg" alt="Daniel" loading="lazy" />
+          </div>
+          <div class="shot" data-full="img/fulvio.jpg" data-cap="Fulvio">
+            <img src="img/fulvio.jpg" alt="Fulvio" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> — DOR_IS</div>
+      <div class="muted">Static page · nessun tracking · nessun cookie</div>
+    </footer>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lb" id="lb" aria-hidden="true">
+    <figure>
+      <img id="lbImg" alt="" />
+      <div class="bar">
+        <div id="lbCap">—</div>
+        <div style="display:flex; gap:10px">
+          <button id="lbDl" type="button" title="Apri immagine in nuova scheda">Apri</button>
+          <button id="lbClose" type="button" title="Chiudi">Chiudi</button>
+        </div>
+      </div>
+    </figure>
+  </div>
+
+  <script>
+    // Year
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    // Lightbox
+    const lb = document.getElementById("lb");
+    const lbImg = document.getElementById("lbImg");
+    const lbCap = document.getElementById("lbCap");
+    const lbClose = document.getElementById("lbClose");
+    const lbDl = document.getElementById("lbDl");
+
+    function openLB(src, cap){
+      lbImg.src = src;
+      lbImg.alt = cap || "immagine";
+      lbCap.textContent = cap || "";
+      lbDl.onclick = () => window.open(src, "_blank", "noopener");
+      lb.setAttribute("open", "");
+      lb.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+    function closeLB(){
+      lb.removeAttribute("open");
+      lb.setAttribute("aria-hidden", "true");
+      lbImg.src = "";
+      document.body.style.overflow = "";
+    }
+
+    document.addEventListener("click", (e) => {
+      const el = e.target.closest("[data-full]");
+      if (!el) return;
+      openLB(el.getAttribute("data-full"), el.getAttribute("data-cap"));
+    });
+
+    lbClose.addEventListener("click", closeLB);
+    lb.addEventListener("click", (e) => { if (e.target === lb) closeLB(); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLB(); });
+  </script>
+</body>
+</html>
